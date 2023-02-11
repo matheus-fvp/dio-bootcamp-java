@@ -2,7 +2,10 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collector;
 
 public class MainList {
     public static void main(String[] args) throws Exception {
@@ -36,6 +39,52 @@ public class MainList {
         for (Double double1 : notas) {
             System.out.println(double1);
         }
+
+        System.out.println("==========");
+        //obter a terceira nota da lista
+        System.out.println(notas.get(3));
+
+        System.out.println("==================");
+        //exibir a menor nota
+        System.out.println(Collections.min(notas));
+
+        System.out.println("==================");
+        //exibir maior nota
+        System.out.println(Collections.max(notas));
+
+        System.out.println("==================");
+        //exibir a soma dos valores
+        Iterator<Double> it = notas.iterator();
+        double soma = 0.0;
+        while(it.hasNext()) {
+            soma += it.next();
+        }
+        System.out.println("Soma dos valores: " + soma);
+
+        System.out.println(String.format("Media das notas: %.2f", soma / notas.size()));
+
+        //remover a nota 6
+        notas.remove(6d);
+        System.out.println(notas);
+        //remover a nota da posição 0
+        notas.remove(0);
+        System.out.println(notas);
+
+
+        //remover as notas menores que 7
+        Iterator<Double> it2 = notas.iterator();
+        while(it2.hasNext()) {
+            if(it2.next() < 7)
+                it2.remove();
+        }
+        System.out.println(notas);
+
+        //apagar a lista
+        notas.clear();
+        System.out.println(notas);
+
+        //verificar se a lista está vazia
+        System.out.println(notas.isEmpty());
 
     }
 }

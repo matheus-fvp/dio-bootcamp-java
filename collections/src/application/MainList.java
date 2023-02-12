@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collector;
 
 public class MainList {
     public static void main(String[] args) throws Exception {
